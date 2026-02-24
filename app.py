@@ -53,6 +53,9 @@ def pull():
     sig = LAST_SIGNAL
     LAST_SIGNAL = None
     return jsonify({"status": "ok", "signal": sig}), 200
+@app.route("/healthz")
+def health():
+    return "OK", 200    
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
